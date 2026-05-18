@@ -46,23 +46,25 @@
                         </select>
                         <button class="btn" type="button" id="profileAdd">Add</button>
                         <button class="btn" type="button" id="profileEdit">Edit</button>
+                        <button class="btn" type="button" id="profileExport">Export</button>
+                        <button class="btn" type="button" id="profileImport">Import</button>
+                        <input type="file" id="profileImportFile" accept="application/json,.json" style="display: none;" />
                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="alert alert-info">
-            <strong>Heads Up!</strong> The <a class="alert-link" href="https://smcnabb.github.io/dark-souls-2-cheat-sheet/">Dark Souls 2 Cheat Sheet</a> is now available.
-        </div>
-
         <div id="intro">
 
             <p>
-                The following is a checklist and set of information I use when playing Dark Souls to make sure I don't miss
-                an item, conversation or boss. I hope you find it useful. A big thanks goes out to the community
-                of contributors on the <a href="https://darksouls.wiki.fextralife.com/">Dark Souls Wiki</a> where
-                some of this information is borrowed from. If this is your first time visiting this page please check
-                out the Help section.
+                This is a modified version of the <a href="https://github.com/smcnabb/dark-souls-cheat-sheet">original Dark Souls Cheat Sheet</a>
+                with the addition of export/import functionality to save your progress as a downloadable file, and a progress bar to track your playthrough completion.
+            </p>
+            <p>
+                The checklists and information help you make sure you don't miss an item, conversation or boss while playing Dark Souls.
+                A big thanks goes out to the community of contributors on the <a href="https://darksouls.wiki.fextralife.com/">Dark Souls Wiki</a> where
+                much of this information is borrowed from, and special credit to <a href="https://github.com/smcnabb">Stephen McNabb</a> for creating the original cheat sheet.
+                If this is your first time visiting this page, please check out the Help section.
             </p>
             <p>
                 <em>Warning: Contains Spoilers!</em>
@@ -73,6 +75,14 @@
         <div class="tab-content">
 
             <div class="tab-pane active" id="tabPlaythrough">
+
+                <div class="progress" id="playthrough_progress_container">
+                    <div id="playthrough_progress_label">Overall Progress</div>
+                    <div class="progress">
+                        <div class="bar" id="playthrough_progress_bar" style="width: 0%;">0%</div>
+                    </div>
+                    <div class="section-progress-bars" id="playthrough_mini_bars"></div>
+                </div>
 
                 <h2>Playthrough Checklist <span id="playthrough_overall_total"></span></h2>
                 <ul>
@@ -1369,9 +1379,14 @@
 
                 <h3>How does the checklist status get saved?</h3>
                 <p>
-                    It gets saved to the local storage in your browser and not to any database or API. So if you are
-                    clearing your browser cache make sure not to delete the site data or your checklists will
-                    get reset. At some point in the future I might hook it up to an API.
+                    It gets saved to local storage in your browser and not to any database or API.
+                </p>
+
+                <h3>How can I back up or restore my checklist progress?</h3>
+                <p>
+                    Use the Export button beside your profile to download your current profile progress as a JSON file.
+                    If you clear browser data or switch devices, use Import to load that file back in.
+                    Import replaces the checklist status for your currently selected profile.
                 </p>
 
                 <h3>What else have you got planned?</h3>
